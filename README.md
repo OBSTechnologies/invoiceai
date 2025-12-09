@@ -61,6 +61,25 @@ php artisan vendor:publish --tag=invoiceai-migrations
 php artisan migrate
 ```
 
+### Table Prefix
+
+By default, all tables are prefixed with `invoiceai_` to avoid conflicts with existing tables:
+
+- `invoiceai_invoices`
+- `invoiceai_invoice_line_items`
+- `invoiceai_invoice_discounts`
+- `invoiceai_invoice_other_charges`
+
+You can customize or remove the prefix in `.env`:
+
+```env
+# Custom prefix
+INVOICEAI_TABLE_PREFIX=myapp_
+
+# No prefix (use with caution)
+INVOICEAI_TABLE_PREFIX=
+```
+
 ## Usage
 
 ### Using the Facade

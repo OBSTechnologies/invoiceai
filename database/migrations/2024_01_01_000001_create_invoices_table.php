@@ -8,7 +8,8 @@ return new class extends Migration
 {
     public function up(): void
     {
-        $tableName = config('invoiceai.tables.invoices', 'invoices');
+        $prefix = config('invoiceai.table_prefix', 'invoiceai_');
+        $tableName = $prefix . config('invoiceai.tables.invoices', 'invoices');
         $tenantColumn = config('invoiceai.multi_tenancy.column', 'company_id');
         $multiTenancy = config('invoiceai.multi_tenancy.enabled', true);
 
@@ -54,6 +55,7 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists(config('invoiceai.tables.invoices', 'invoices'));
+        $prefix = config('invoiceai.table_prefix', 'invoiceai_');
+        Schema::dropIfExists($prefix . config('invoiceai.tables.invoices', 'invoices'));
     }
 };

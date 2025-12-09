@@ -42,7 +42,7 @@ class Invoice extends Model
     {
         parent::__construct($attributes);
 
-        $this->setTable(config('invoiceai.tables.invoices', 'invoices'));
+        $this->setTable(invoiceai_table('invoices'));
 
         // Add tenant column to fillable if multi-tenancy is enabled
         if (config('invoiceai.multi_tenancy.enabled', true)) {

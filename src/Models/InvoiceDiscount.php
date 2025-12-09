@@ -24,7 +24,7 @@ class InvoiceDiscount extends Model
     {
         parent::__construct($attributes);
 
-        $this->setTable(config('invoiceai.tables.invoice_discounts', 'invoice_discounts'));
+        $this->setTable(invoiceai_table('invoice_discounts'));
     }
 
     /**

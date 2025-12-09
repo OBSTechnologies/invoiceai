@@ -30,7 +30,7 @@ class InvoiceLineItem extends Model
     {
         parent::__construct($attributes);
 
-        $this->setTable(config('invoiceai.tables.invoice_line_items', 'invoice_line_items'));
+        $this->setTable(invoiceai_table('invoice_line_items'));
     }
 
     /**

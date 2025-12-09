@@ -69,10 +69,22 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Table Prefix
+    |--------------------------------------------------------------------------
+    |
+    | Add a prefix to all package tables to avoid conflicts with existing
+    | tables in your application. Set to empty string for no prefix.
+    |
+    */
+    'table_prefix' => env('INVOICEAI_TABLE_PREFIX', 'invoiceai_'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Database Table Names
     |--------------------------------------------------------------------------
     |
     | Customize the database table names used by the package.
+    | The table_prefix will be prepended to these names.
     |
     */
     'tables' => [

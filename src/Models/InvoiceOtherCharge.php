@@ -24,7 +24,7 @@ class InvoiceOtherCharge extends Model
     {
         parent::__construct($attributes);
 
-        $this->setTable(config('invoiceai.tables.invoice_other_charges', 'invoice_other_charges'));
+        $this->setTable(invoiceai_table('invoice_other_charges'));
     }
 
     /**

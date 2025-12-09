@@ -8,8 +8,9 @@ return new class extends Migration
 {
     public function up(): void
     {
-        $tableName = config('invoiceai.tables.invoice_line_items', 'invoice_line_items');
-        $invoicesTable = config('invoiceai.tables.invoices', 'invoices');
+        $prefix = config('invoiceai.table_prefix', 'invoiceai_');
+        $tableName = $prefix . config('invoiceai.tables.invoice_line_items', 'invoice_line_items');
+        $invoicesTable = $prefix . config('invoiceai.tables.invoices', 'invoices');
 
         Schema::create($tableName, function (Blueprint $table) use ($invoicesTable) {
             $table->id();
@@ -29,6 +30,7 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists(config('invoiceai.tables.invoice_line_items', 'invoice_line_items'));
+        $prefix = config('invoiceai.table_prefix', 'invoiceai_');
+        Schema::dropIfExists($prefix . config('invoiceai.tables.invoice_line_items', 'invoice_line_items'));
     }
 };
